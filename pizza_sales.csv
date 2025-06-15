@@ -1,0 +1,16 @@
+SELECT 
+  pizza_id,
+  pizza_name,
+  pizza_category,
+  
+  -- Expanding size abbreviations using CASE
+  CASE pizza_size
+    WHEN 'S' THEN 'Small'
+    WHEN 'M' THEN 'Medium'
+    WHEN 'L' THEN 'Large'
+    WHEN 'XL' THEN 'Extra Large'
+    WHEN 'XXL' THEN 'Double Extra Large'
+    ELSE pizza_size  -- fallback in case of unexpected values
+  END AS pizza_size_full
+  
+FROM pizza_sales;
